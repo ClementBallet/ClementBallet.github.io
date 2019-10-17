@@ -1,0 +1,17 @@
+@import 'var.css';
+
+body {
+    border: 5px solid var(--main-color);
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1400px) {
+    .wrapper {
+        width: 100%;
+    }
+}
