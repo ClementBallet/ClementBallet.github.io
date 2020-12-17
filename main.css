@@ -1,246 +1,129 @@
-:root {
-    --linen: #f9eee5;
-    --seal-brown: #5d2d0f;
-    --bistre: #301a0e;
-    --container: 1280px;
+body {
+    font-family: 'Indie Flower', cursive;
+    font-size: 40px;
+    background: url('https://images.pexels.com/photos/172277/pexels-photo-172277.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-size: cover;
+    background-repeat: repeat;
+    color: #000;
+    counter-reset: count;
+    height: 100vh;
 }
 
-* {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    font-family: 'Roboto', sans-serif;
-    color: var(--bistre);
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(128,128,128,.61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
-    font-weight: 300;
-    font-size: 2.5rem;
-    line-height: 3.75rem;
+.overlay > span {
+    width: 330px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.overlay > span > span {
+    font-size: 20px;
+    display: block;
+}
+
+.overlay img {
+    width: 200px;
 }
 
 ul {
-    padding: 0;
+    position: absolute;
     margin: 0;
+    padding: 0;
+    top: 10%;
+    left: 0;
+    display: flex;
 }
 
 li {
-    list-style-type: none;
-}
-
-::selection {
-    background-color: var(--seal-brown);
-    color: var(--linen);
-}
-
-body {
-    background-color: var(--linen);
-}
-
-header, main, footer {
-    max-width: var(--container);
-    margin: 0 auto;
-}
-
-header {
-    height: 100vh;
-    padding-top: 20px;
-}
-
-header::after {
-    content: "";
-    background-image: url('bewwwabear.PNG');
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-}
-
-header > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
-    max-width: 100%;
-}
-
-header nav ul li a {
-    color: var(--seal-brown);
-    text-decoration: none;
-    font-size: 34px;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    transition: color 0.5s;
-}
-
-header nav ul li a:hover {
-    color: rgba(48, 26, 14, 0.61);
-}
-
-section {
-    height: 100vh;
-    display: flex;
-    position: relative;
-    align-items: center;
-    border-top: 1px solid var(--bistre);
-}
-
-section:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-section img {
-    margin-right: 20px;
-    width: fit-content;
-    height: fit-content;
-}
-
-section:nth-child(even) img {
-    margin-right: 0;
-    margin-left: 20px;
-}
-
-section h2 {
-    text-transform: uppercase;
-    font-weight: 900;
-    line-height: 2;
-    font-size: 30px;
-    margin-top: 0;
-}
-
-section p {
-    font-size: 17px;
-    line-height: 27px;
-    margin-bottom: 60px;
-}
-
-section a {
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 3px solid var(--bistre);
-    padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 20px;
-    line-height: 20px;
-    transition: background-color 0.5s ease-in-out,
-                color 0.5s ease-in-out;
-}
-
-section a:hover {
-    background-color: var(--bistre);
-    color: var(--linen);
-}
-
-section:nth-child(even) a {
-    border-radius: 50px;
-}
-
-/* section:nth-child(1)::after {
-    content: "";
-    position: absolute;
-    background-image: url('bewwwa-wordpress.png');
-    backdrop-filter: grayscale(30%);
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-} */
-
-.contact {
-    height: 400px;
-    background-color: var(--bistre);
-    color: var(--linen);
-    text-decoration: none;
     text-align: center;
-    font-size: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: 0.7rem;
-    transition: background-color 0.5s ease-in-out,
-                color 0.5s ease-in-out;
-}
-
-.contact:hover {
-    background-color: var(--linen);
-    color: var(--bistre);
-    border: 10px solid var(--bistre);
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-footer ul {
-    display: flex;
-    margin: 20px;
-}
-
-footer ul li {
+    display: inline-block;
+    list-style: none;
     position: relative;
-    width: 40px;
-    height: 40px;
+    border: solid 12px #fff;
+    background: #fff;
+    box-shadow: 0 0 15px 0 #555;
+    transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    top: 50px;
 }
 
-footer ul li a {
-    display: block;
-    width: 100%;
-    height: 100%;
+li:hover {
+    top: 0;
+    opacity: 0.5;
+}
+
+li:nth-child(5n+1) {
+    transform: rotate(10deg);
+}
+
+li:nth-child(5n+2) {
+    transform: rotate(0deg);
+}
+
+li:nth-child(5n+3) {
+    transform: rotate(-10deg);
+}
+
+li:nth-child(5n+4) {
+    transform: rotate(20deg);
+}
+
+li:nth-child(5n) {
+    transform: rotate(-20deg);
+}
+
+img {
+    width: 400px;
+}
+
+p {
+    margin: -15px 0 0;
+    height: 100px;
+    position: relative;
+}
+
+p::before {
     position: absolute;
-}
-
-footer ul li + li {
-    margin-left: 20px;
-}
-
-footer ul svg {
-    fill: var(--bistre);
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+    counter-increment: count;
+    content: "#" counter(count);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-footer a:hover svg {
-    fill: rgba(48, 26, 14, 0.61);
+.light {
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 700px;
+    height: 700px;
+    background: #fff;
+    filter:blur(100px);
+    opacity: 0.3;
+    pointer-events: none;
 }
 
-footer > a {
-    margin-top: 16px;
-}
-
-.❤ {
-    color: red;
-}
-
-.made {
-    margin-top: 20px;
-}
-
-.made svg {
-    width: 24px;
-    height: 24px;
-    vertical-align: bottom;
-}
-
-.made svg path {
-    fill: var(--bistre);
+audio {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
