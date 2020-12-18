@@ -2,23 +2,28 @@ body {
     font-family: 'Indie Flower', cursive;
     font-size: 40px;
     background: url('https://images.pexels.com/photos/172277/pexels-photo-172277.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-    background-size: cover;
     background-repeat: repeat;
     color: #000;
     counter-reset: count;
-    height: 100vh;
+    position: relative;
+    margin: 0;
 }
 
-.overlay {
+.hidden {
+    display: none !important;
+}
+
+.reveal {
+    visibility: visible !important;
+}
+
+.overlay::before {
+    content: "X";
+    display: block;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(128,128,128,.61);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 50px;
+    right: 100px;
+    cursor: pointer;
 }
 
 .overlay > span {
@@ -37,12 +42,13 @@ body {
 }
 
 ul {
-    position: absolute;
-    margin: 0;
-    padding: 0;
+    margin: 0 0 200px 0;
+    padding: 0 150px;
     top: 10%;
-    left: 0;
+    left: 15px;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 li {
@@ -85,17 +91,28 @@ li:nth-child(5n) {
     transform: rotate(-20deg);
 }
 
-img {
-    width: 400px;
+li img {
+    max-width: 700px;
+    height: 520px;
+    object-fit: cover;
 }
 
-p {
+li:nth-child(5) {
+    height: 460px;
+}
+
+li:nth-child(5) img {
+    object-fit: contain;
+    height: 361px;
+}
+
+li p {
     margin: -15px 0 0;
     height: 100px;
     position: relative;
 }
 
-p::before {
+li p::before {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -108,22 +125,47 @@ p::before {
     align-items: center;
 }
 
-.light {
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 700px;
-    height: 700px;
-    background: #fff;
-    filter:blur(100px);
-    opacity: 0.3;
-    pointer-events: none;
-}
-
 audio {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.mot-final {
+    visibility: hidden;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 200px;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    li img {
+        width: 300px;
+        height: auto;
+    }
+
+    li:nth-child(5) {
+        height: 230px;
+    }
+
+    li:nth-child(5) img {
+        height: 151px;
+    }
+
+    li p {
+        height: 70px;
+    }
+
+    .overlay::before {
+        top: 30px;
+        right: 30px;
+    }
+
+    .overlay > span {
+        padding: 0 20px;
+    }
 }

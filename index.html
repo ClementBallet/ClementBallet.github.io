@@ -19,133 +19,43 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <ul>
-            <li><img src="https://unsplash.it/300/300"/>
-              <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-              <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-              <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-              <p></p>
-            </li>
-            <li><img src="https://unsplash.it/300/300"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/300/300"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/300/300"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/300/300"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/300/300"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/300/300"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/300/300"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/300/300"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/400/400"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/500/500"/>
-            <p></p>
-            </li>
-            <li><img src="https://unsplash.it/200/200"/>
-            <p></p>
-            </li>
-          </ul>
-          <div class="light"></div>
-          <div class="overlay">
-              <span>
-                  Play pour écouter la musique
-                  <span>(composée par votre serviteur)</span>
-                  <img src="assets/images/arrow-down.png">
-              </span>
-          </div>
+        <ul id="ul"></ul>
 
-          <audio controls loop preload="auto" id="audio">
-            <source src="assets/audio/Mix-OTBS.mp3" type="audio/mpeg">
-            Votre navigateur ne prend pas en charge l'élément <code>audio</code>.
-          </audio>
+        <p class="mot-final">
+          à Nicolas...
+        </p>
+
+        <audio controls preload="auto" id="audio">
+          <source src="assets/audio/Mix-OTBS.mp3" type="audio/mpeg">
+          Votre navigateur ne prend pas en charge l'élément <code>audio</code>.
+        </audio>
 
         <script async defer>
-            window.onload = function() {
+            window.onload = () => {
+              const audio = document.querySelector("#audio");
+              const final = document.querySelector(".mot-final");
+              const ul = document.querySelector("#ul");
+              const nb = 73;
 
+              audio.volume = 0.2;
+
+              for (let i = 0; i < nb; i++) {
+                ul.innerHTML += `
+                  <li>
+                    <img src="assets/images/${ i+1 }.jpg" loading="lazy" />
+                    <p></p>
+                  </li>
+                `;
+              };
+
+              window.confirm('Appuyez sur play sur le lecteur pour écouter la musique composée par votre serviteur 🙂');
+
+              //window.addEventListener('click', removeOverlay);
+              window.setTimeout(revealFinalWord, 10000);
+
+              function revealFinalWord() {
+                final.classList.add('reveal');
+              }
             }
         </script>
     </body>
